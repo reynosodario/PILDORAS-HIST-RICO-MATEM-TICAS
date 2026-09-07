@@ -1,0 +1,360 @@
+/* =========================================================
+   Píldoras histórico-matemáticas — hoja de estilos
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ink:        #0E1016;
+  --surface:    #171A22;
+  --surface-2:  #1F232D;
+  --paper:      #ECE7D8;
+  --paper-dim:  #A8ADB8;
+  --gold:       #C7A544;
+  --gold-dim:   #8A7431;
+  --rule:       #2A2E38;
+
+  --display: 'Fraunces', serif;
+  --body:    'Source Serif 4', serif;
+  --ui:      'Inter', sans-serif;
+
+  --measure: 68ch;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+a:hover, a:focus-visible { text-decoration: underline; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+img, video { max-width: 100%; display: block; }
+
+/* ---------- layout shell ---------- */
+
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  font-family: var(--ui);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+}
+.brand span { color: var(--gold); }
+
+nav.site a {
+  font-family: var(--ui);
+  font-size: 0.9rem;
+  color: var(--paper-dim);
+  margin-left: 20px;
+}
+nav.site a:hover { color: var(--gold); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 72px 24px 48px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eyebrow {
+  font-family: var(--ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0 0 20px;
+  max-width: 16ch;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero p.lede {
+  font-size: 1.15rem;
+  color: var(--paper-dim);
+  max-width: var(--measure);
+  margin: 0 0 8px;
+}
+
+.byline {
+  font-family: var(--ui);
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+/* ---------- píldora list (index) ---------- */
+
+.lista {
+  padding: 8px 24px 64px;
+}
+
+.pildora-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pildora-card .num {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: var(--gold-dim);
+}
+
+.pildora-card h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.pildora-card h2 a { color: var(--paper); }
+.pildora-card h2 a:hover { color: var(--gold); text-decoration: none; }
+
+.meta {
+  font-family: var(--ui);
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+  margin: 0 0 10px;
+}
+.meta .dot { margin: 0 8px; color: var(--rule); }
+
+.pildora-card p {
+  color: var(--paper-dim);
+  margin: 0;
+  max-width: var(--measure);
+}
+
+/* ---------- single píldora page ---------- */
+
+.pildora-hero {
+  padding: 56px 24px 32px;
+}
+
+.pildora-hero .kicker {
+  font-family: var(--ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 14px;
+}
+
+.pildora-hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 18px;
+  max-width: 18ch;
+}
+
+.pildora-hero .dek {
+  font-size: 1.1rem;
+  color: var(--paper-dim);
+  max-width: var(--measure);
+  margin: 0 0 28px;
+}
+
+.video-frame {
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.video-frame video { width: 100%; }
+
+.video-caption {
+  font-family: var(--ui);
+  font-size: 0.8rem;
+  color: var(--paper-dim);
+  margin: 10px 0 0;
+}
+
+section.contenido {
+  padding: 40px 24px;
+  border-top: 1px solid var(--rule);
+}
+
+section.contenido h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0 0 18px;
+}
+
+section.contenido p {
+  max-width: var(--measure);
+  margin: 0 0 16px;
+}
+
+.fuente {
+  font-family: var(--ui);
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+}
+
+.formula {
+  font-family: var(--ui);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+/* ---------- desafío (native <details>) ---------- */
+
+.desafio {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 28px;
+  margin: 0 24px 48px;
+}
+
+.desafio h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  margin: 0 0 14px;
+}
+
+.desafio p { max-width: var(--measure); margin: 0 0 12px; }
+
+details.pista {
+  margin-top: 16px;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+}
+
+details.pista summary {
+  cursor: pointer;
+  font-family: var(--ui);
+  font-weight: 500;
+  color: var(--gold);
+}
+
+details.pista .respuesta {
+  margin-top: 14px;
+  color: var(--paper-dim);
+}
+
+/* ---------- suscripción ---------- */
+
+.suscribir {
+  padding: 48px 24px;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+
+.suscribir h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+}
+
+.suscribir p {
+  color: var(--paper-dim);
+  max-width: 50ch;
+  margin: 0 auto 24px;
+}
+
+form.suscripcion {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+form.suscripcion input[type="email"] {
+  font-family: var(--ui);
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--paper);
+  min-width: 260px;
+}
+form.suscripcion input[type="email"]::placeholder { color: var(--paper-dim); }
+
+form.suscripcion button {
+  font-family: var(--ui);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border-radius: 4px;
+  border: none;
+  background: var(--gold);
+  color: var(--ink);
+  cursor: pointer;
+}
+form.suscripcion button:hover { background: #d8b756; }
+
+.form-note {
+  font-family: var(--ui);
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+  margin-top: 12px;
+}
+
+/* ---------- footer ---------- */
+
+footer.site {
+  padding: 32px 24px 48px;
+  text-align: center;
+  font-family: var(--ui);
+  font-size: 0.82rem;
+  color: var(--paper-dim);
+}
+footer.site a { color: var(--paper-dim); }
+footer.site a:hover { color: var(--gold); }
+
+@media (max-width: 560px) {
+  .pildora-card { grid-template-columns: 1fr; }
+  .pildora-card .num { font-size: 1.1rem; }
+}
